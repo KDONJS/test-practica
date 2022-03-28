@@ -79,24 +79,24 @@ class Data{
         return $datos;
     }
 
-    // public function delete($id){
+    public function delete($id){
 
-    //     $datos = array();
+        $id=$this->connect()->real_escape_string($id);
+        //verificar si exite
+        $sql= "DELETE FROM clientes WHERE id = $id;";
 
-    //     //verificar si exite
-    //     $sql= "DELETE FROM clientes WHERE id = $id;";
+        $res = $this->connect()->query($sql);
 
-    //     $res = $this->connect()->query($sql);
-
-    //     if ($res) {
-    //             return true;
-    //         }elser{
-    //             return false;
+        if($res) {
+                return true;
+            }else{
+                return false;
             
-    //     }
+            }
+            
 
 
-    // }
+    }
     
 
 }
